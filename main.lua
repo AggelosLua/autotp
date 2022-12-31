@@ -7,7 +7,7 @@ local succ,err = pcall(function()
     NotificationLibLoader = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
 end);
 if err then
-    error("Failed to load a dependecy.");
+    error("Failed to load a dependecy.", err);
 end;
 NotificationLibLoader.new("success", "Success", "Successfully rejoined and ran dependencies.") 
 wait(1)
