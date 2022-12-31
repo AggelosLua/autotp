@@ -1,7 +1,10 @@
+if (not game.IsLoaded(game)) then
+    local Loaded = game.Loaded
+    Loaded.Wait(Loaded);
+end
 local succ,err = pcall(function()
     kometaLoader = loadstring(game:HttpGet("https://s.kometa.ga/kometa.lua"))();
     NotificationLibLoader = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
-    MainDependency = loadstring(game:HttpGet("https://github.com/AggelosLua/autotp/raw/main/main.lua"))()
 end);
 if err then
     error("Failed to load a dependecy.");
@@ -21,5 +24,6 @@ _ = game:GetService("CoreGui").RobloxPromptGui.promptOverlay.ChildAdded:Connect(
         local kometaLoader;
         local NotificationLibLoader;
         local queue_on_teleport = syn and syn.queue_on_teleport or queue_on_teleport;
+        queue_on_teleport("loadstring(game.HttpGet(game, \"https://github.com/AggelosLua/autotp/raw/main/main.lua\"))()");
     end
 end)
