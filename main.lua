@@ -11,7 +11,9 @@ if err then
 end;
 NotificationLibLoader.new("success", "Success", "Successfully rejoined and ran dependencies.") 
 wait(1)
-NotificationLibLoader.new("warning", "Warnings", "Rejoined after kick.")
+NotificationLibLoader.new("warning", "Warning1", "Rejoined after kick.")
+wait(1)
+NotificationLibLoader.new("warning", "Warning2", "Kick reason:")
 _ = game:GetService("CoreGui").RobloxPromptGui.promptOverlay.ChildAdded:Connect(function(Child)
     if Child.Name == 'ErrorPrompt' and Child:FindFirstChild('MessageArea') and Child.MessageArea:FindFirstChild("ErrorFrame") then
         wait(1);
