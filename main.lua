@@ -13,11 +13,12 @@ NotificationLibLoader.new("success", "Success", "Successfully rejoined and ran d
 wait(1)
 NotificationLibLoader.new("warning", "Warning1", "Rejoined after kick.")
 wait(1)
+warn(getgenv().LastKickMsg)
 NotificationLibLoader.new("warning", "Warning2", "Kick reason:")
 _ = game:GetService("CoreGui").RobloxPromptGui.promptOverlay.ChildAdded:Connect(function(Child)
-    if Child.Name == 'ErrorPrompt' and Child:FindFirstChild('MessageArea') and Child.MessageArea:FindFirstChild("ErrorFrame") then
+    if Child.Name == 'ErrorPrompt' and Child:FindFirstChild('MessageArea') and Child.MessageArea:FindFirstChild("ErrorFrame") and Child.MessageArea.ErrorFrame:FindFirstChild("ErrorMessage") then
         wait(1);
-      --  setclipboard(Child:FindFirstChild('MessageArea').Text)
+        getgenv().LastKickMsg = Child.MessageArea.ErrorFrame:FindFirstChild("ErrorMessage").Text;
         game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game:GetService("Players").LocalPlayer);
         if not game:IsLoaded() then
             game.Loaded:Wait();
