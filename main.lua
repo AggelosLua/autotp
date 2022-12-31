@@ -65,11 +65,6 @@ _ = game:GetService("CoreGui").RobloxPromptGui.promptOverlay.ChildAdded:Connect(
             writefile("AutoTPBss/Data.json", game:GetService("HttpService"):JSONEncode({
                 ["Reason"] = "Roblox Backend Issue"
             }))
-        elseif reason:match("529") then
-            writefile("AutoTPBss/Data.json", game:GetService("HttpService"):JSONEncode({
-                ["Reason"] = "Roblox Backend Issue"
-            }))
-        end
         game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game:GetService("Players").LocalPlayer);
         if not game:IsLoaded() then
             game.Loaded:Wait();
