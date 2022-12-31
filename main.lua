@@ -8,7 +8,7 @@ local succ,err = pcall(function()
     NotificationLibLoader = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
 end);
 if err then
-    warn(err);
+    error(err);
 end;
 if not isfolder("AutoTPBss") then 
     makefolder("AutoTPBss")
@@ -20,12 +20,11 @@ NotificationLibLoader.new("success", "Success", "Successfully rejoined and ran d
 wait(1)
 NotificationLibLoader.new("warning", "Warning1", "Rejoined after kick.")
 wait(1)
-NotificationLibLoader.new("warning", "Warning2", "Kick type: "..reason["Reason"])
+NotificationLibLoader.new("warning", "Warning2", "Kick reason: "..reason["Reason"])
 _ = game:GetService("CoreGui").RobloxPromptGui.promptOverlay.ChildAdded:Connect(function(Child)
     if Child.Name == 'ErrorPrompt' and Child:FindFirstChild('MessageArea') and Child.MessageArea:FindFirstChild("ErrorFrame") and Child.MessageArea.ErrorFrame:FindFirstChild("ErrorMessage") then
         wait(1);
         reason = Child.MessageArea.ErrorFrame:FindFirstChild("ErrorMessage").Text;
-            warn("WE STARTTING")
         if (reason:match("267")) then
             writefile("AutoTPBss/Data.json", game:GetService("HttpService"):JSONEncode({
                 ["Reason"] = "Game Script Based Kick"
@@ -66,9 +65,9 @@ _ = game:GetService("CoreGui").RobloxPromptGui.promptOverlay.ChildAdded:Connect(
             writefile("AutoTPBss/Data.json", game:GetService("HttpService"):JSONEncode({
                 ["Reason"] = "Roblox Backend Issue"
             }))
+        end
         game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game:GetService("Players").LocalPlayer);
         local queue_on_teleport = syn and syn.queue_on_teleport or queue_on_teleport;
         queue_on_teleport("loadstring(game.HttpGet(game, \"https://github.com/AggelosLua/autotp/raw/main/main.lua\"))()");
-    end
 end
 end)
