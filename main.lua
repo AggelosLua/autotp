@@ -1,7 +1,7 @@
 _ = game:GetService("CoreGui").RobloxPromptGui.promptOverlay.ChildAdded:Connect(function(Child)
     if Child.Name == 'ErrorPrompt' and Child:FindFirstChild('MessageArea') and Child.MessageArea:FindFirstChild("ErrorFrame") then
         wait(1);
-        setclipboard(Child:FindFirstChild('MessageArea').Text)
+      --  setclipboard(Child:FindFirstChild('MessageArea').Text)
         game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game:GetService("Players").LocalPlayer);
         if not game:IsLoaded() then
             game.Loaded:Wait();
