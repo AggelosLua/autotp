@@ -75,5 +75,5 @@ _ = game:GetService("CoreGui").RobloxPromptGui.promptOverlay.ChildAdded:Connect(
         local queue_on_teleport = syn and syn.queue_on_teleport or queue_on_teleport;
         queue_on_teleport("loadstring(game.HttpGet(game, \"https://github.com/AggelosLua/autotp/raw/main/main.lua\"))()");
     end
+end
 end)
-
