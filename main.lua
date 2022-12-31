@@ -8,7 +8,7 @@ local succ,err = pcall(function()
     NotificationLibLoader = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
 end);
 if err then
-    error("Failed to load a dependecy.", err);
+    error(err);
 end;
 if not isfolder("AutoTPBss") then 
     makefolder("AutoTPBss")
