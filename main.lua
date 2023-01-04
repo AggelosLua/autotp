@@ -4,7 +4,7 @@ if (not game.IsLoaded(game)) then
 end
 local reason
 local succ,err = pcall(function()
-    kometaLoader = loadstring(game:HttpGet("https://s.kometa.ga/kometa.lua"))();
+    kometaLoader = loadstring(game:HttpGet("https://github.com/AggelosLua/kometaconfigmod/raw/main/main.lua"))();
     NotificationLibLoader = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
 end);
 if err then
